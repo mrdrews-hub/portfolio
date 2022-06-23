@@ -14,8 +14,8 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="jumbotron h-screen overflow-x-hidden">
-    <div class="content h-5/6 w-screen relative">
+  <div class="jumbotron overflow-x-hidden">
+    <div class="content h-screen w-screen relative">
       <div class="absolute top-32 left-0 right-0 mx-auto text-center z-40">
         <h1 class="text-5xl font-extrabold text-emerald-500" id="myName">
           ANDRE SAPUTRA
@@ -52,7 +52,6 @@ onMounted(() => {
           class="drop-shadow-md w-44"
         />
       </picture>
-    </div>
     <div
       class="h-[190px] max-w-md border-2 border-gray-400 rounded-tl-full rounded-tr-full bg-emerald-400 absolute bottom-0 left-36 -right-36 mx-auto z-20"
     >
@@ -72,6 +71,7 @@ onMounted(() => {
     >
       <img src="../assets/jumbotron/house3.png" alt="" class="absolute top-4 left-10 right-0 mx-auto" />
       <img src="../assets/jumbotron/flag.png" alt="" class="absolute -top-20 lg:-top-28 left-0 right-10 mx-auto origin-bottom z-30 drop-shadow-sm" />
+    </div>
     </div>
   </div>
 </template>
