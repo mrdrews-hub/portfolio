@@ -1,10 +1,11 @@
 <script setup>
-import TheWelcome from "@/components/TheWelcome.vue";
 import JumbotronVue from "@/components/Jumbotron.vue";
+import AboutSection from "@/components/AboutSection/AboutSection.vue";
+import SkillSection from "@/components/SkillSection/SkillSection.vue";
 </script>
 
 <template>
 <JumbotronVue />
-  <main>
-  </main>
+<AboutSection />
+<SkillSection />
 </template>

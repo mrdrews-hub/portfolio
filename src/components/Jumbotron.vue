@@ -17,7 +17,7 @@ onMounted(() => {
   <div class="jumbotron overflow-x-hidden">
     <div class="content h-screen w-screen relative">
       <div class="absolute top-32 left-0 right-0 mx-auto text-center z-40">
-        <h1 class="text-5xl font-extrabold text-emerald-500" id="myName">
+        <h1 class="text-5xl font-extrabold text-emerald-500 px-2 leading-tight" id="myName">
           ANDRE SAPUTRA
         </h1>
         <h2 class="text-2xl font-semibold font-mono mt-6 z-20" id="status">
@@ -70,6 +70,7 @@ onMounted(() => {
       class="h-[200px] max-w-md border-2 border-gray-400 rounded-tl-full rounded-tr-full bg-green-600 absolute bottom-24 left-0 right-0 mx-auto"
     >
       <img src="../assets/jumbotron/house3.png" alt="" class="absolute top-4 left-10 right-0 mx-auto" />
+      <img src="../assets/jumbotron/tree2.png" alt="" class="absolute top-2 right-20 lg:left-32" />
       <img src="../assets/jumbotron/flag.png" alt="" class="absolute -top-20 lg:-top-28 left-0 right-10 mx-auto origin-bottom z-30 drop-shadow-sm" />
     </div>
     </div>
