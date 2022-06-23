@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap'); */
+/* @layer components {
+    .nav-link {
+      @apply mx-0 sm:mx-2 my-2 border-b-2 hover:border-pink-600 hover:text-pink-700 transition-all duration-500 py-1 sm:p-0;
+    }
+} */
