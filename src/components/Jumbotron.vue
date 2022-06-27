@@ -20,9 +20,6 @@ onMounted(() => {
         <h1 class="text-5xl font-extrabold text-emerald-500 px-2 leading-tight" id="myName">
           ANDRE SAPUTRA
         </h1>
-        <h2 class="text-2xl font-semibold font-mono mt-6 z-20" id="status">
-          WEB DEVELOPER
-        </h2>
       </div>
       <picture class="absolute bottom-6 -left-64 z-30" id="cloud1">
         <img

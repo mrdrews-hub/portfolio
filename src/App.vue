@@ -3,43 +3,43 @@ import { RouterLink, RouterView } from "vue-router";
 import { onMounted, ref } from "vue";
 
 const navBackground = ref();
+const isMenuActive = ref(false)
+const scrollY = ref(0)
+
+const onClickMobileMenu = () => {
+  isMenuActive.value = !isMenuActive.value
+}
+
+const onScroll = (event) => {
+  console.log(event);
+}
 
 onMounted(() => {
-  window.addEventListener("scroll", (el) => {
-    const navbar = document.getElementById("navigation");
+  window.addEventListener("scroll", (event) => {
+    scrollY.value = window.scrollY
     if (window.scrollY > 100) {
       navBackground.value = ["bg-emerald-200/90", "backdrop-blur-md", 'border-b-2'];
     } else {
       navBackground.value = "";
     }
   });
-  const mobileMenuButton = document.getElementById("mobileMenuButton");
-  mobileMenuButton.onclick = function () {
-    document
-      .getElementById("sideMenuHideOnMobile")
-      .classList.toggle("-translate-y-full");
-    document.getElementById("sideMenuHideOnMobile").classList.toggle("mt-12");
-    document.getElementById("sideMenuHideOnMobile").classList.toggle("shadow");
-    document.getElementById("mobileMenuButtonClose").classList.toggle("hidden");
-    document.getElementById("mobileMenuButtonOpen").classList.toggle("hidden");
-  };
-  // Hide element when click outside nav
-  const theElementContainer = document.getElementsByTagName("nav")[0];
-  document.addEventListener("click", function (event) {
-    if (!theElementContainer.contains(event.target)) {
-      document
-        .getElementById("sideMenuHideOnMobile")
-        .classList.add("-translate-y-full");
-      document.getElementById("sideMenuHideOnMobile").classList.remove("mt-12");
-      document
-        .getElementById("sideMenuHideOnMobile")
-        .classList.remove("shadow");
-      document
-        .getElementById("mobileMenuButtonOpen")
-        .classList.remove("hidden");
-      document.getElementById("mobileMenuButtonClose").classList.add("hidden");
-    }
-  });
+  // # Hide element when click outside nav
+  // const theElementContainer = document.getElementsByTagName("nav")[0];
+  // document.addEventListener("click", function (event) {
+  //   if (!theElementContainer.contains(event.target)) {
+  //     document
+  //       .getElementById("sideMenuHideOnMobile")
+  //       .classList.add("-translate-y-full");
+  //     document.getElementById("sideMenuHideOnMobile").classList.remove("mt-12");
+  //     document
+  //       .getElementById("sideMenuHideOnMobile")
+  //       .classList.remove("shadow");
+  //     document
+  //       .getElementById("mobileMenuButtonOpen")
+  //       .classList.remove("hidden");
+  //     document.getElementById("mobileMenuButtonClose").classList.add("hidden");
+  //   }
+  // });
 });
 </script>
 
@@ -55,11 +55,13 @@ onMounted(() => {
         id="mobileMenuButton"
         class="p-3 focus:outline-none md:hidden"
         title="Open side menu"
+        @click="onClickMobileMenu"
       >
         <!-- SVG For "x" button -->
         <svg
           id="mobileMenuButtonClose"
-          class="w-6 h-6 hidden"
+          class="w-6 h-6"
+          :class="{ hidden: !isMenuActive, shadow: isMenuActive }"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -76,6 +78,7 @@ onMounted(() => {
         <svg
           id="mobileMenuButtonOpen"
           class="w-6 h-6 z-40"
+          :class="{ hidden: isMenuActive }"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -93,8 +96,9 @@ onMounted(() => {
       <!-- List of nav item -->
       <div
         id="sideMenuHideOnMobile"
-        :class="navBackground"
-        class="md:w-full md:py-7 md:pl-12 py-2 backdrop-blur-md z-40 rounded-bl-md flex gap-4 absolute top-0 transition-all duration-500 transform translate-x-0 w-1/2 left-0 px-3 flex-col md:flex-row -translate-y-full md:translate-y-0 md:items-center md:text-lg font-serif font-bold"
+        sideMenuHideOnMobile
+        :class="{ navBackground, 'mt-12': isMenuActive, shadow: isMenuActive, '-translate-y-full': !isMenuActive }"
+        class="md:w-full md:py-7 md:pl-12 py-2 backdrop-blur-md z-40 rounded-bl-md flex gap-4 absolute top-0 transition-all duration-500 transform translate-x-0 w-1/2 left-0 px-3 flex-col md:flex-row md:translate-y-0 md:items-center md:text-lg font-serif font-bold"
       >
         <RouterLink
           to="/"
